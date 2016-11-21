@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 import {Game} from '../../models/game';
 import {DataService} from '../../services/dataService';
+import {PushService} from "../../services/pushService";
 
 @Component({
     moduleId: module.id,
@@ -13,6 +14,7 @@ export class GameListComponent implements OnInit {
     public games: Game[];
 
     constructor(private _gamesService: DataService,
+                private _pushService: PushService,
                 private _router: Router,
                 private _route: ActivatedRoute) {
     }
@@ -27,5 +29,7 @@ export class GameListComponent implements OnInit {
                 (games) => this.games = games,
                 (err) => console.log('Error while fetching game data')
             );
+
+        this._pushService.newGameAvailable
     }
 }

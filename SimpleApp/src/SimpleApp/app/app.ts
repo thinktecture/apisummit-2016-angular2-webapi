@@ -1,5 +1,6 @@
 import {Component, AfterViewInit} from '@angular/core';
 import {IBoardZAppWindow} from './interfaces/boardzAppWindow';
+import {PushService} from "./services/pushService";
 
 declare var window: IBoardZAppWindow;
 
@@ -10,12 +11,14 @@ declare var window: IBoardZAppWindow;
 })
 
 export class BoardzAppComponent implements AfterViewInit {
-    constructor() {
+    constructor(private _pushService: PushService) {
     }
 
     public ngAfterViewInit(): any {
         if (window.initAdminLTE) {
             window.initAdminLTE();
         }
+
+        this._pushService.start();
     }
 }

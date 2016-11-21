@@ -9,8 +9,10 @@ import {ApiConfig} from "../apiConfig";
 @Injectable()
 export class DataService {
     private _games: Game[] =
-        [ new Game("1", "Monopoly", "A real classic"),
-            new Game("2", "Jumanji", "Also a cool game") ];
+        [
+            new Game("1", "Monopoly", "A real classic"),
+            new Game("2", "Jumanji", "Also a cool game")
+        ];
 
     constructor(private _http: Http, private _apiConfig: ApiConfig) {
     }

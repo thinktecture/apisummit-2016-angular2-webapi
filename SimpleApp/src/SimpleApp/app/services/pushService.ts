@@ -7,13 +7,13 @@ declare var $;
 
 @Injectable()
 export class PushService {
-    private _hubConnection;
     private _connection;
+    private _hubConnection;
     private _gamesHubProxy;
 
     public newGameAvailable: EventEmitter<Game> = new EventEmitter<Game>();
 
-    constructor(private _configuration: ApiConfig) {
+    constructor(private _apiConfig: ApiConfig) {
         this._hubConnection = $.hubConnection;
     }
 
@@ -30,7 +30,7 @@ export class PushService {
             return;
         }
 
-        this._connection = this._hubConnection(`${this._configuration.rootUrl}signalr`);
+        this._connection = this._hubConnection(`${this._apiConfig.rootUrl}signalr`);
         this._gamesHubProxy = this._connection.createHubProxy('gamesHub');
 
         this._gamesHubProxy.on('newGameAvailable', (game) => {
