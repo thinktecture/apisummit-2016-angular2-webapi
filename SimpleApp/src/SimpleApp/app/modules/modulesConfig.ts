@@ -8,11 +8,8 @@ import {DashboardComponent} from '../components/dashboard/dashboard';
 import {HeaderComponent} from '../components/header/header';
 import {SidebarComponent} from '../components/sidebar/sidebar';
 import {WidgetComponent} from '../components/widget/widget';
-import {BackButtonDirective} from '../directives/backButtonDirective';
-import {CloseSidebarOnClickDirective} from '../directives/closeSidebarOnClickDirective';
 import {APP_ROUTING, appRoutingProviders, GAMES_ROUTING} from '../routing/routingConfig';
 import {DataService} from '../services/dataService';
-import {PlatformInformationService} from '../services/platformInformationService';
 import {GameListComponent} from '../components/games/list';
 import {GamesRootComponent} from '../components/games/gamesRoot';
 import {GameDetailsComponent} from '../components/games/details';
@@ -27,9 +24,7 @@ export namespace ModuleConfiguration {
             DashboardComponent,
             HeaderComponent,
             SidebarComponent,
-            WidgetComponent,
-            BackButtonDirective,
-            CloseSidebarOnClickDirective
+            WidgetComponent
         ];
 
         public static imports = [
@@ -44,7 +39,6 @@ export namespace ModuleConfiguration {
         public static providers = [{ provide: LocationStrategy, useClass: HashLocationStrategy },
             { provide: ConnectionBackend, useClass: XHRBackend },
             DataService,
-            PlatformInformationService,
             appRoutingProviders];
 
         public static bootstraps = [BoardzAppComponent]
