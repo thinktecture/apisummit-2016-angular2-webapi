@@ -17,6 +17,6 @@ export class DashboardComponent implements OnInit {
     public ngOnInit(): any {
         this.playerCount = this._dataService.getPlayerCount().toString();
 
-        this.gameCount = this._dataService.getGameCount().toString();
+        this._dataService.getGameCount().subscribe(count => this.gameCount = count.toString());
     }
 }

@@ -26,5 +26,24 @@ namespace GamesWebApi
         {
             return _database.Values;
         }
+
+        [ActionName("count")]
+        [HttpGet]
+        public int GetGamesCount()
+        {
+            return _database.Values.Count;
+        }
+
+        [ActionName("item")]
+        [HttpPost]
+        public Game AddGame(Game newGame)
+        {
+            var id = Guid.NewGuid();
+            newGame.Id = id;
+
+            _database.TryAdd(id, newGame);
+
+            return newGame;
+        }
     }
 }
