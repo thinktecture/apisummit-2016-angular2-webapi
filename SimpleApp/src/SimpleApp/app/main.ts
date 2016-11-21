@@ -5,6 +5,7 @@ import 'hammerjs/hammer';
 import 'jquery/jquery.hammer';
 import 'jquery/jquery.slimscroll';
 import 'pNotify/pnotify-adapter';
+import 'signalr/signalr';
 import 'fastclick/fastclick';
 
 import {enableProdMode} from '@angular/core';

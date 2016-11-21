@@ -17,6 +17,7 @@ import {GameListComponent} from '../components/games/list';
 import {GamesRootComponent} from '../components/games/gamesRoot';
 import {GameDetailsComponent} from '../components/games/details';
 import {ApiConfig} from "../apiConfig";
+import {PushService} from "../services/pushService";
 
 export namespace ModuleConfiguration {
 
@@ -56,6 +57,6 @@ export namespace ModuleConfiguration {
 
         public static exports = [];
 
-        public static providers = [ApiConfig];
+        public static providers = [ApiConfig, PushService];
     }
 }

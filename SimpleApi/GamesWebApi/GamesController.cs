@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Web.Http;
+using Microsoft.AspNet.SignalR;
 
 namespace GamesWebApi
 {
@@ -38,10 +39,14 @@ namespace GamesWebApi
         [HttpPost]
         public Game AddGame(Game newGame)
         {
+            var gamesHub = GlobalHost.ConnectionManager.GetHubContext<GamesHub>();
+
             var id = Guid.NewGuid();
             newGame.Id = id;
 
             _database.TryAdd(id, newGame);
+
+            gamesHub.Clients.All.newGameAvailable(newGame);
 
             return newGame;
         }

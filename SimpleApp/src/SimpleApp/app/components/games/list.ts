@@ -24,12 +24,18 @@ export class GameListComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.loadGames();
+
+        this._pushService.newGameAvailable.subscribe(game => {
+            this.loadGames();
+        });
+    }
+
+    private loadGames() {
         this._gamesService.getGames()
             .subscribe(
                 (games) => this.games = games,
                 (err) => console.log('Error while fetching game data')
             );
-
-        this._pushService.newGameAvailable
     }
 }

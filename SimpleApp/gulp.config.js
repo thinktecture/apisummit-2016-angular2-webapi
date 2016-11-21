@@ -61,6 +61,7 @@ module.exports = {
                 './src/SimpleApp/vendor/jquery/jquery.slimscroll.js',
                 './src/SimpleApp/vendor/pNotify/pnotify-adapter.js',
                 './src/SimpleApp/vendor/pNotify/pnotify.custom.js',
+                './src/SimpleApp/vendor/signalr/signalr.js',
                 './src/SimpleApp/vendor/bootstrap/js/bootstrap.js',
                 './src/SimpleApp/vendor/fastclick/fastclick.js',
                 './src/SimpleApp/vendor/admin-lte/js/app.js'

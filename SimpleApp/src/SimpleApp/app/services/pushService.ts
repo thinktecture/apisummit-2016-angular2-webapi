@@ -30,7 +30,7 @@ export class PushService {
             return;
         }
 
-        this._connection = this._hubConnection(`${this._apiConfig.rootUrl}signalr`);
+        this._connection = this._hubConnection(`${this._apiConfig.rootUrl}`);
         this._gamesHubProxy = this._connection.createHubProxy('gamesHub');
 
         this._gamesHubProxy.on('newGameAvailable', (game) => {
