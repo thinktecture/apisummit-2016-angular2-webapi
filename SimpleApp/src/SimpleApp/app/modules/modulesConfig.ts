@@ -16,6 +16,7 @@ import {PlatformInformationService} from '../services/platformInformationService
 import {GameListComponent} from '../components/games/list';
 import {GamesRootComponent} from '../components/games/gamesRoot';
 import {GameDetailsComponent} from '../components/games/details';
+import {ApiConfig} from "../apiConfig";
 
 export namespace ModuleConfiguration {
 
@@ -55,6 +56,6 @@ export namespace ModuleConfiguration {
 
         public static exports = [];
 
-        public static providers = [];
+        public static providers = [ApiConfig];
     }
 }
