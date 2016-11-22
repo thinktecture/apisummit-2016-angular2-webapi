@@ -27,8 +27,6 @@ namespace GamesWebApi
             httpConfig.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             app.UseWebApi(httpConfig);
-
-            app.MapSignalR();
         }
     }
 }
