@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Web.Http;
 
 namespace GamesWebApi
 {
-    public class GamesController : ApiController
+    public class GamesController : StatusController
     {
         private static ConcurrentDictionary<Guid, Game> _database = 
             new ConcurrentDictionary<Guid, Game>();

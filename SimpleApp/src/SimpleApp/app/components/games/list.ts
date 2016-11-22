@@ -3,7 +3,6 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 import {Game} from '../../models/game';
 import {DataService} from '../../services/dataService';
-import {PushService} from "../../services/pushService";
 
 @Component({
     moduleId: module.id,
@@ -14,21 +13,12 @@ export class GameListComponent implements OnInit {
     public games: Game[];
 
     constructor(private _gamesService: DataService,
-                private _pushService: PushService,
                 private _router: Router,
                 private _route: ActivatedRoute) {
     }
 
-    public openCreateGame(): void {
-        this._router.navigate(['../new'], { relativeTo: this._route });
-    }
-
     public ngOnInit(): void {
         this.loadGames();
-
-        this._pushService.newGameAvailable.subscribe(game => {
-            this.loadGames();
-        });
     }
 
     private loadGames() {
