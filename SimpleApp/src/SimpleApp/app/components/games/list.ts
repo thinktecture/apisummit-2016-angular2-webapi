@@ -12,9 +12,7 @@ import {DataService} from '../../services/dataService';
 export class GameListComponent implements OnInit {
     public games: Game[];
 
-    constructor(private _gamesService: DataService,
-                private _router: Router,
-                private _route: ActivatedRoute) {
+    constructor(private _gamesService: DataService) {
     }
 
     public ngOnInit(): void {

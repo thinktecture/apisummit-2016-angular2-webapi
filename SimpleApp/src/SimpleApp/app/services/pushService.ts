@@ -17,6 +17,7 @@ export class PushService {
         this._hubConnection = $.hubConnection;
     }
 
+    // Not used here...
     public newGame(game: string): void {
         if (!this._connection) {
             return;
